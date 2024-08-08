@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+<h1>Register</h1>
+    <form method="post" action="{% url 'registration:signup' %}">
+        {% csrf_token %}
+        <div>
+            <label for="id_username">Имя пользователя:</label>
+            {{ form.username }}
+        </div>
+        <div>
+            <label for="id_password">Введите пароль:</label>
+            {{ form.password }}
+        </div>
+        <div>
+            <label for="id_password2">Подтвердите пароль:</label>
+            {{ form.password2 }}
+        </div>
+        <button class="btn btn-success" type="submit">Зарегистрироваться</button>
+    </form>
+    <p>Уже есть аккаунт? <a href="{% url 'registration:login' %}" class="btn">Войти</a></p>
+{% endblock %}

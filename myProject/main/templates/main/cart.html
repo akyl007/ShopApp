@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}\
+{% block title %}Корзина{% endblock %}
+
+
+
+{% block content %}
+{% load get_item %}
+{% load static %}
+    <h1>Корзина</h1>
+    {% if products %}
+
+        <ul>
+            {% for product in products %}
+                <div class="cartItemSpan"><li><img
+                        class="productInCartImg" src="{{product.image.url}}">
+                    {{ product.name }} -  {{ product.price }} $
+
+                    <a href="{% url 'main:remove_from_cart' product.id %}">
+                    <img class="trashLogo" src="{% static 'images/trash.png' %}"></a>
+                </li>
+                <hr></div>
+            {% endfor %}
+            <h2>Итого: ${{ total|floatformat:2 }}</h2><a href="{% url 'main:checkout' %}" class="btn btn-success"> Покупка </a>
+                <a href="{% url 'main:clear_cart' %}"> Очистка</a>
+        </ul>
+
+    {% else %}
+        <p>Ваша корзина пуста.</p>
+    {% endif %}
+{% endblock %}

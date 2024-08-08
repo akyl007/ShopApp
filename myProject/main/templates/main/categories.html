@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Категории{% endblock %}
+
+{% block content %}
+    <h1>Категории</h1>
+<div class="categories-container">
+    {% for category in categories %}
+        <div class="category-item">
+            {% if category.image %}
+                <img src="{{ category.image.url }}" alt="{{ category.name }}">
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+            <h5>{{ category.name }}</h5>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

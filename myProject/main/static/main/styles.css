@@ -1,0 +1,207 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 750px;
+}
+.header {
+    background-color: #f8f9fa;
+    padding: 5px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+
+}
+
+.profile-buttons {
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: transparent;
+}
+.logos {
+    margin-top: 8px;
+    margin-right: 15px;
+    min-height: 35px;
+
+}
+
+.cartlogo {
+    max-width: 40px; /* Максимальная ширина логотипа */
+    height: auto;     /* Автоматическая высота для сохранения пропорций */
+    padding: 2px 5px;
+    border: none;
+    cursor: pointer;
+}
+.cartlogo:active {
+    border-bottom: 2px solid black;
+}
+.productInCartImg{
+    max-width: 100px;
+}
+.trashLogo{
+    max-width: 20px;
+    color:#dc3545;
+    float: right;
+}
+.cartItemSpan{
+    width: 50%;
+}
+.cartlogo:focus {
+    border-bottom: 2px solid black;
+}
+
+.profile-buttons .logout {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #dc3545;
+}
+.main-content {
+    padding: 20px;
+}
+.trending-products {
+    display: flex;
+    gap: 10px;
+}
+.product-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+}
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Выдвигает футер вниз */
+}
+/* Контейнер для категорий */
+.categories-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переходить на новую строку */
+    gap: 10px; /* Пробел между элементами */
+    justify-content: center; /* Центрирование элементов */
+}
+
+/* Стили для каждого элемента категории */
+.category-item {
+    width: 200px; /* Ширина элемента */
+    height: 200px; /* Высота элемента */
+    border: 2px solid #ddd; /* Граница вокруг элемента */
+    border-radius: 15px; /* Закругленные углы */
+    text-align: center; /* Центрирование текста внутри элемента */
+    padding: 10px; /* Отступы внутри элемента */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для элемента */
+    background-color: #fff; /* Фоновый цвет */
+    overflow: hidden; /* Скрыть часть изображения, если оно больше элемента */
+    transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход для эффектов */
+}
+
+/* Стили для изображения */
+.category-item img {
+    margin-bottom: 15px;
+    width: 100%; /* Ширина изображения соответствует ширине элемента */
+    height: 70%; /* Автоматическая высота изображения для сохранения пропорций */
+    border-bottom: 2px solid #ddd; /* Граница между изображением и текстом */
+}
+
+/* Эффект при наведении курсора */
+.category-item:hover {
+    transform: scale(1.005); /* Увеличение элемента при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Увеличение тени */
+}
+
+.product-detail {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+}
+.product-detail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.product-detail h1 {
+    font-size: 2em;
+    margin: 20px 0;
+}
+.product-detail p {
+    font-size: 1.2em;
+}
+.product-detail .price {
+    color: #f60;
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+.product_image {
+    width: 300px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.product-placeholder {
+    background: #e0e0e0;
+    height: 150px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.category-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+}
+
+.category-item img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.category-item p {
+    margin: 10px 0;
+}
+
+.profile-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.profile-info ul li {
+    margin: 10px 0;
+}

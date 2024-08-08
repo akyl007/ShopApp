@@ -1,0 +1,32 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Чат {% endblock %}
+{% load static %}
+{% block stylesheet %} <link rel="stylesheet" href="{% static 'messenger/css/messenger.css' %}">{% endblock %}
+
+{% block content %}
+<div class="support"><h3>Чат со службой поддержки</h3> </div>
+<div class="chat-container">
+
+    <div class="messages" id="messages">
+        {% for message in messages %}
+            <p>
+                <strong class="{% if message.sender == user %}sender{% else %}receiver{% endif %}">
+                    {{ message.sender.username }}:
+                </strong>
+                {{ message.message }}
+                <i class="time">{{ message.created_at|date:"g:i a" }}</i>
+            </p>
+        {% empty %}
+            <p>No messages yet.</p>
+        {% endfor %}
+    </div>
+    <div class="input-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

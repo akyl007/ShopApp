@@ -1,0 +1,25 @@
+{% extends 'main/layout.html'  %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+<h1>Чаты с пользователями</h1>
+
+{% for chat in chats %}
+    <div class="chat-box">
+        <h2>Чат с {{ chat.user.username }}</h2>
+        <div class="messages">
+            {% for message in chat.messenger_set.all %}
+                <p><strong>{{ message.sender.username }}:</strong> {{ message.message }} <i class="time">{{ message.created_at|date:"g:i a" }}</i></p>
+            {% endfor %}
+        </div>
+        <form method="post" action="{% url 'messenger:send_message' chat.id %}">
+    {% csrf_token %}
+    <input type="text" name="message" placeholder="Введите ваше сообщение...">
+    <button type="submit">Отправить</button>
+</form>
+
+    </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Оформление заказа</title>
+</head>
+<body>
+    <h1>Спасибо за покупку!</h1>
+    <p>Вы потратили ${{ total|floatformat:2 }}</p>
+    <a href="{% url 'main:cart' %}">Вернуться в корзину</a>
+</body>
+</html>

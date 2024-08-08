@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<h1>Login</h1>
+
+    <form method="post" action="{% url 'registration:login' %}"  >
+            {% csrf_token %}
+            {{form.as_p}}
+        <button class="btn btn-primary">Войти</button>
+    </form>
+    Все еще нет аккаунта?<a href="{% url 'registration:signup' %}" class="btn btn-success"> Регистрация</a>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

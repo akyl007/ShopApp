@@ -1,0 +1,66 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <div class="main-content">
+        {% if user.is_authenticated %}
+            <h1>Горячие новинки</h1>
+            <div class="trending-products">
+                <div class="categories-container">
+                    {% for product in products|slice:":2" %}
+                        <a href="{% url 'main:product_detail' product_id=product.id %}">
+                            <div class="category-item">
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% else %}
+                                    <p>Изображение недоступно!</p>
+                                {% endif %}
+                                <p>{{ product.name }}</p>
+                                <p>${{ product.price|floatformat:2 }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% if user.is_staff %}
+                <h2>Панель Администратора</h2>
+                <a href="#"><button>Добавить категорию</button></a>
+                <a href="#"><button>Добавить товары</button></a>
+                <a href="#"><button>Изменить товары</button></a>
+            {% else %}
+                <h2>Поиск товара</h2>
+                <input type="text" placeholder="Search...">
+                <h2>Товары</h2>
+                <div class="trending-products">
+                <div class="categories-container">
+                    {% for product in products %}
+                        <a href="{% url 'main:product_detail' product_id=product.id %}">
+                            <div class="category-item">
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% else %}
+                                    <p>Изображение недоступно!</p>
+                                {% endif %}
+                                <p>{{ product.name }}</p>
+                                <p>${{ product.price|floatformat:2 }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        {% else %}
+            <h1>Добро пожаловать, Гость!</h1>
+            <p>Мы рады видеть вас здесь. Ознакомьтесь с нашим широким
+                ассортиментом товаров и наслаждайтесь отличными покупками.</p>
+            <p>Чтобы получить максимальную отдачу от нашего сайта, вы можете:</p>
+            <ul>
+                <li><a href="{% url 'registration:signup' %}"><button
+                        style="background-color: green; color: white;">Регистрация</button>
+                </a> Создайте аккаунт для просмотра интересного контента!</li>
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
